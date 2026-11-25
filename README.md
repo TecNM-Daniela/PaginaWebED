@@ -2,7 +2,7 @@
 
 La página tiene como objetivo presentar información sobre los principales conceptos, mecanismos y herramientas que permiten proteger los sistemas informáticos y mantener segura la información.
 # Métodos de Busqueda
-![Portada](portada3.png)
+![Portada](portada4.png)
 
 **Integrantes:**
 
