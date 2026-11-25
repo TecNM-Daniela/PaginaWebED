@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1 Búsqueda Secuencial</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+   <header class="navbar">
+    <div class="logo">
+        <a href="index.html">Métodos de Búsqueda</a>
+    </div>
+
+    <nav>
+        <div class="dropdown">
+            <a href="#" class="activo">Temas ▾</a>
+
+            <div class="dropdown-contenido">
+                <a href="Tema61.html">6.1 Búsqueda Secuencial</a>
+                <a href="Tema62.html">6.2 Búsqueda Binaria</a>
+                <a href="Tema63.html">6.3 Búsqueda HASH</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <section class="portada-tema portada-secuencial">
+        <div>
+            <p class="etiqueta">UNIDAD 6 · MÉTODOS DE BÚSQUEDA</p>
+            <h1>6.1 Búsqueda secuencial</h1>
+            <p>
+                Un método sencillo que permite encontrar información
+                revisando los elementos uno por uno.
+            </p>
+        </div>
+    </section>
+
+    <main class="contenido-tema">
+
+        <section class="bloque">
+            <h2>¿Qué es la búsqueda secuencial?</h2>
+            <p>
+                La búsqueda secuencial, también conocida como búsqueda
+                lineal, es un método que consiste en recorrer los
+                elementos de una lista o arreglo desde el principio
+                hasta encontrar el dato que se está buscando.
+            </p>
+            <p>
+                El algoritmo compara cada elemento con el valor
+                solicitado. Si encuentra una coincidencia, devuelve
+                su posición. Si termina de revisar todos los elementos
+                y no encuentra el dato, indica que no existe.
+            </p>
+        </section>
+
+        <section class="bloque">
+            <h2>Características</h2>
+            <ul>
+                <li>Revisa los elementos uno por uno.</li>
+                <li>No necesita que los datos estén ordenados.</li>
+                <li>Es fácil de implementar y comprender.</li>
+                <li>Puede utilizarse en arreglos y listas.</li>
+                <li>Su rendimiento depende de la cantidad de elementos.</li>
+            </ul>
+        </section>
+
+        <section class="bloque">
+            <h2>Funcionamiento</h2>
+            <p>
+                Para realizar una búsqueda secuencial, se comienza
+                desde el primer elemento del arreglo y se compara
+                con el valor que se desea encontrar. Si no coincide,
+                se continúa con el siguiente elemento hasta localizarlo
+                o llegar al final.
+            </p>
+
+            <h3>Ejemplo:</h3>
+            <p>Arreglo: 14, 8, 25, 11, 30</p>
+            <p>Dato buscado: 11</p>
+
+            <div class="nota">
+                El algoritmo revisa 14, después 8, luego 25 y finalmente
+                encuentra el número 11 en la posición 3.
+                Las posiciones comienzan desde 0.
+            </div>
+        </section>
+
+        <section class="bloque">
+            <h2>Ejemplo de programación en C#</h2>
+            <p>
+                El siguiente programa utiliza un arreglo y un ciclo
+                para comparar cada número hasta encontrar el valor
+                solicitado.
+            </p>
+
+            <pre class="codigo"><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = { 14, 8, 25, 11, 30 };
+        int buscar = 11;
+        int posicion = -1;
+
+        for (int i = 0; i < numeros.Length; i++)
+        {
+            if (numeros[i] == buscar)
+            {
+                posicion = i;
+                break;
+            }
+        }
+
+        if (posicion != -1)
+        {
+            Console.WriteLine("Elemento encontrado");
+            Console.WriteLine("Posicion: " + posicion);
+        }
+        else
+        {
+            Console.WriteLine("Elemento no encontrado");
+        }
+    }
+}</code></pre>
+
+            <h3>Resultado esperado</h3>
+            <div class="nota">
+                Elemento encontrado<br>
+                Posicion: 3
+            </div>
+        </section>
+
+        <section class="bloque">
+            <h2>Ventajas</h2>
+            <ul>
+                <li>Es sencilla de programar.</li>
+                <li>No requiere ordenar previamente los datos.</li>
+                <li>Funciona con diferentes cantidades de elementos.</li>
+            </ul>
+
+            <h2>Desventajas</h2>
+            <ul>
+                <li>Puede revisar muchos elementos antes de encontrar el dato.</li>
+                <li>Su rendimiento disminuye cuando aumenta la cantidad de información.</li>
+                <li>No es la opción más eficiente para conjuntos de datos grandes.</li>
+            </ul>
+        </section>
+
+        <section class="bloque">
+            <h2>Complejidad</h2>
+            <p>
+                La complejidad temporal promedio y en el peor caso
+                es O(n), porque puede ser necesario revisar todos
+                los elementos del arreglo. En el mejor caso es O(1),
+                cuando el elemento se encuentra al inicio.
+            </p>
+        </section>
+
+        <section class="bloque conclusion">
+            <h2>Conclusión</h2>
+            <p>
+                La búsqueda secuencial es un método práctico y fácil
+                de utilizar cuando se trabaja con conjuntos de datos
+                pequeños o cuando la información no está ordenada.
+                Aunque puede ser menos eficiente con grandes cantidades
+                de datos, es una buena opción para comprender el
+                funcionamiento de los algoritmos de búsqueda.
+            </p>
+        </section>
+
+        <div class="navegacion-temas">
+            <a href="index.html">← Inicio</a>
+            <a href="Tema62.html">Siguiente tema →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Unidad 6 | Métodos de Búsqueda</p>
+        <p>Ingeniería en Sistemas Computacionales</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de Búsqueda | Estructura de Datos</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+   <header class="navbar">
+    <div class="logo">
+        <a href="index.html">Métodos de Búsqueda</a>
+    </div>
+
+    <nav>
+        <div class="dropdown">
+            <a href="#" class="activo">Temas ▾</a>
+
+            <div class="dropdown-contenido">
+                <a href="Tema61.html">6.1 Búsqueda Secuencial</a>
+                <a href="Tema62.html">6.2 Búsqueda Binaria</a>
+                <a href="Tema63.html">6.3 Búsqueda HASH</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <section class="inicio">
+        <div class="contenido-inicio">
+            <p class="etiqueta">UNIDAD 6 · ESTRUCTURA DE DATOS</p>
+
+            <h1>Métodos de búsqueda</h1>
+
+            <p>
+                Los métodos de búsqueda son procedimientos utilizados
+                para localizar información dentro de un conjunto de datos.
+                En esta unidad conoceremos su funcionamiento, características
+                y aplicaciones mediante ejemplos prácticos.
+            </p>
+        </div>
+    </section>
+
+    <main class="contenedor">
+
+        <section class="seccion">
+            <h2>Introducción</h2>
+
+            <p>
+                Los métodos de búsqueda son una parte importante de las
+                estructuras de datos, ya que permiten localizar elementos
+                específicos dentro de una colección de información.
+                Estos algoritmos ayudan a encontrar datos de manera
+                organizada y eficiente, dependiendo de la cantidad de
+                información y de cómo se encuentre almacenada.
+            </p>
+
+            <p>
+                Existen diferentes métodos para realizar búsquedas.
+                Algunos revisan los elementos uno por uno, otros dividen
+                los datos para reducir el espacio de búsqueda y también
+                existen métodos que utilizan funciones HASH para acceder
+                directamente a la información.
+            </p>
+        </section>
+
+        <section class="seccion" id="caracteristicas">
+            <h2>Características de los métodos de búsqueda</h2>
+
+            <p class="subtitulo">
+                Los métodos de búsqueda tienen características que
+                permiten identificar su funcionamiento y la manera
+                en que trabajan con la información.
+            </p>
+
+            <div class="rejilla">
+
+                <article class="tarjeta">
+                    <div class="numero">01</div>
+                    <h3>Localización de datos</h3>
+                    <p>
+                        Permiten encontrar un elemento específico
+                        dentro de una lista, arreglo o estructura.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="numero">02</div>
+                    <h3>Comparación</h3>
+                    <p>
+                        Algunos algoritmos comparan los elementos
+                        con el valor que se desea encontrar.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="numero">03</div>
+                    <h3>Eficiencia</h3>
+                    <p>
+                        Su rendimiento depende de la cantidad de
+                        datos y del método utilizado.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="numero">04</div>
+                    <h3>Organización</h3>
+                    <p>
+                        Algunos métodos necesitan que los datos
+                        estén ordenados para realizar la búsqueda.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="numero">05</div>
+                    <h3>Resultados</h3>
+                    <p>
+                        Indican si el elemento existe y pueden
+                        mostrar la posición donde se encuentra.
+                    </p>
+                </article>
+
+                <article class="tarjeta">
+                    <div class="numero">06</div>
+                    <h3>Aplicaciones</h3>
+                    <p>
+                        Se utilizan en programas, bases de datos
+                        y sistemas de información.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="seccion">
+            <h2>Comparación de los métodos</h2>
+
+            <p class="subtitulo">
+                Cada método utiliza un procedimiento diferente
+                para encontrar información.
+            </p>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Método</th>
+                            <th>Funcionamiento</th>
+                            <th>Requisito</th>
+                            <th>Complejidad promedio</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Búsqueda secuencial</td>
+                            <td>Revisa los elementos uno por uno.</td>
+                            <td>No necesita orden.</td>
+                            <td>O(n)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Búsqueda binaria</td>
+                            <td>Divide los datos a la mitad.</td>
+                            <td>Datos ordenados.</td>
+                            <td>O(log n)</td>
+                        </tr>
+
+                        <tr>
+                            <td>Búsqueda HASH</td>
+                            <td>Utiliza una función para localizar datos.</td>
+                            <td>Tabla HASH.</td>
+                            <td>O(1) esperado</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="seccion">
+            <h2>Temas de la unidad</h2>
+
+            <p class="subtitulo">
+                Conoce los diferentes métodos de búsqueda
+                y revisa sus ejemplos de programación.
+            </p>
+
+            <div class="rejilla temas">
+
+                <article class="tarjeta tema">
+                    <span class="numero">01</span>
+
+                    <h3>6.1 Búsqueda secuencial</h3>
+
+                    <p>
+                        Consiste en recorrer los elementos de una
+                        colección uno por uno hasta encontrar
+                        el dato solicitado.
+                    </p>
+
+                    <a href="Tema61.html" class="enlace">
+                        Consultar tema →
+                    </a>
+                </article>
+
+                <article class="tarjeta tema">
+                    <span class="numero">02</span>
+
+                    <h3>6.2 Búsqueda binaria</h3>
+
+                    <p>
+                        Divide repetidamente los datos ordenados
+                        en dos partes para encontrar el elemento
+                        de una manera más rápida.
+                    </p>
+
+                    <a href="Tema62.html" class="enlace">
+                        Consultar tema →
+                    </a>
+                </article>
+
+                <article class="tarjeta tema">
+                    <span class="numero">03</span>
+
+                    <h3>6.3 Búsqueda por funciones HASH</h3>
+
+                    <p>
+                        Utiliza una función HASH para transformar
+                        una clave en una posición y localizar
+                        la información.
+                    </p>
+
+                    <a href="Tema63.html" class="enlace">
+                        Consultar tema →
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="seccion conclusion">
+            <h2>Importancia de los métodos de búsqueda</h2>
+
+            <p>
+                Los métodos de búsqueda permiten trabajar con
+                información de una manera más organizada.
+                Conocer sus características y diferencias ayuda
+                a seleccionar el algoritmo adecuado para cada
+                situación, considerando la cantidad de datos
+                y el rendimiento que se necesita.
+            </p>
+        </section>
+
+       <section class="seccion datos-academicos">
+
+    <h2>Datos académicos</h2>
+
+    <div class="bloque">
+        <p><strong>Institución:</strong> Tecnológico Nacional de México - Tecnológico de Parral</p>
+        <p><strong>Carrera:</strong> Ingeniería en Sistemas Computacionales</p>
+        <p><strong>Materia:</strong> Estructura de Datos</p>
+        <p><strong>Unidad:</strong> Unidad 6. Métodos de búsqueda</p>
+        <p><strong>Docente:</strong> MSC. Myrna Villegas Gaytán</p>
+        <p><strong>Periodo:</strong> Agosto - Diciembre 2026</p>
+    </div>
+
+    <h2 class="titulo-integrantes">Integrantes del equipo</h2>
+
+    <div class="integrantes-grid">
+
+        <article class="tarjeta-integrante">
+            <img src="img/victor.png" alt="Víctor Manuel" class="foto-integrante">
+            <h3>Vazquez Lopez Victor Manuel</h3>
+        </article>
+
+        <article class="tarjeta-integrante">
+            <img src="img/luis.png" alt="Luis Gabriel" class="foto-integrante">
+            <h3>Rodriguez Castillo Luis Gabriel</h3>
+        </article>
+
+        <article class="tarjeta-integrante">
+            <img src="img/santos.png" alt="Santos Zahid" class="foto-integrante">
+            <h3>Zavala Ramirez Santos Zahid</h3>
+        </article>
+
+        <article class="tarjeta-integrante">
+            <img src="img/daniela.png" alt="Daniela Isabel" class="foto-integrante">
+            <h3>Holguín Holguín Daniela Isabel</h3>
+        </article>
+
+    </div>
+
+</section>
+
+    </main>
+
+    <footer>
+        <p>Ingeniería en Sistemas Computacionales</p>
+        <p>Tecnológico Nacional de México - Tecnológico de Parral</p>
+        <p>Agosto - Diciembre 2026</p>
+    </footer>
+
+</body>
+</html>

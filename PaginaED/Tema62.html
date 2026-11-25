@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.2 Búsqueda Binaria</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="navbar">
+    <div class="logo">
+        <a href="index.html">Métodos de Búsqueda</a>
+    </div>
+
+    <nav>
+        <div class="dropdown">
+            <a href="#" class="activo">Temas ▾</a>
+
+            <div class="dropdown-contenido">
+                <a href="Tema61.html">6.1 Búsqueda Secuencial</a>
+                <a href="Tema62.html">6.2 Búsqueda Binaria</a>
+                <a href="Tema63.html">6.3 Búsqueda HASH</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <section class="portada-tema portada-binaria">
+        <div>
+            <p class="etiqueta">UNIDAD 6 · MÉTODOS DE BÚSQUEDA</p>
+            <h1>6.2 Búsqueda binaria</h1>
+            <p>
+                Un algoritmo que reduce el espacio de búsqueda
+                dividiendo los datos ordenados a la mitad.
+            </p>
+        </div>
+    </section>
+
+    <main class="contenido-tema">
+
+        <section class="bloque">
+            <h2>¿Qué es la búsqueda binaria?</h2>
+            <p>
+                La búsqueda binaria es un método que permite localizar
+                un elemento dentro de un conjunto de datos ordenados.
+                Su funcionamiento consiste en dividir repetidamente
+                el espacio de búsqueda en dos partes hasta encontrar
+                el elemento deseado.
+            </p>
+            <p>
+                En cada paso se compara el valor buscado con el
+                elemento que se encuentra en la posición central.
+                Dependiendo del resultado, se continúa buscando
+                en la mitad izquierda o derecha.
+            </p>
+        </section>
+
+        <section class="bloque">
+            <h2>Características</h2>
+            <ul>
+                <li>Necesita que los datos estén ordenados.</li>
+                <li>Divide el espacio de búsqueda en dos partes.</li>
+                <li>Reduce la cantidad de comparaciones necesarias.</li>
+                <li>Es eficiente para conjuntos de datos grandes.</li>
+                <li>Utiliza posiciones iniciales, finales y centrales.</li>
+            </ul>
+        </section>
+
+        <section class="bloque">
+            <h2>Funcionamiento</h2>
+            <p>
+                Primero se identifica el elemento central del arreglo.
+                Después se compara con el valor buscado. Si el valor
+                es menor, se continúa en la mitad izquierda; si es
+                mayor, se busca en la mitad derecha. El procedimiento
+                se repite hasta encontrar el dato o determinar que
+                no se encuentra.
+            </p>
+
+            <h3>Ejemplo:</h3>
+            <p>Arreglo ordenado: 3, 7, 12, 18, 24, 31, 45</p>
+            <p>Dato buscado: 24</p>
+
+            <div class="nota">
+                1. Se compara con el número central: 18.<br>
+                2. Como 24 es mayor, se busca en la mitad derecha.<br>
+                3. Se compara con 31 y después con 24.<br>
+                4. El elemento se encuentra en la posición 4.
+            </div>
+        </section>
+
+        <section class="bloque">
+            <h2>Ejemplo de programación en C#</h2>
+            <p>
+                En este ejemplo se utiliza un arreglo ordenado
+                y las variables inicio, fin y medio para realizar
+                la búsqueda.
+            </p>
+
+            <pre class="codigo"><code>using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numeros = { 3, 7, 12, 18, 24, 31, 45 };
+        int buscar = 24;
+
+        int inicio = 0;
+        int fin = numeros.Length - 1;
+        int posicion = -1;
+
+        while (inicio <= fin)
+        {
+            int medio = (inicio + fin) / 2;
+
+            if (numeros[medio] == buscar)
+            {
+                posicion = medio;
+                break;
+            }
+            else if (numeros[medio] < buscar)
+            {
+                inicio = medio + 1;
+            }
+            else
+            {
+                fin = medio - 1;
+            }
+        }
+
+        if (posicion != -1)
+        {
+            Console.WriteLine("Elemento encontrado");
+            Console.WriteLine("Posicion: " + posicion);
+        }
+        else
+        {
+            Console.WriteLine("Elemento no encontrado");
+        }
+    }
+}</code></pre>
+
+            <h3>Resultado esperado</h3>
+            <div class="nota">
+                Elemento encontrado<br>
+                Posicion: 4
+            </div>
+        </section>
+
+        <section class="bloque">
+            <h2>Ventajas</h2>
+            <ul>
+                <li>Es más rápida que la búsqueda secuencial en conjuntos grandes.</li>
+                <li>Reduce el espacio de búsqueda en cada paso.</li>
+                <li>Realiza menos comparaciones cuando los datos están ordenados.</li>
+            </ul>
+
+            <h2>Desventajas</h2>
+            <ul>
+                <li>Necesita que los datos estén ordenados.</li>
+                <li>Puede requerir un proceso previo de ordenamiento.</li>
+                <li>Su implementación puede ser más complicada que la secuencial.</li>
+            </ul>
+        </section>
+
+        <section class="bloque">
+            <h2>Complejidad</h2>
+            <p>
+                La búsqueda binaria tiene una complejidad temporal
+                promedio y en el peor caso de O(log n), debido a que
+                reduce a la mitad el espacio de búsqueda en cada paso.
+                En el mejor caso es O(1), cuando el elemento está
+                justo en la posición central.
+            </p>
+        </section>
+
+        <section class="bloque conclusion">
+            <h2>Conclusión</h2>
+            <p>
+                La búsqueda binaria es un método eficiente para
+                encontrar información cuando los datos están
+                ordenados. Su principal ventaja es que reduce
+                rápidamente la cantidad de elementos que necesita
+                revisar, por lo que resulta útil cuando se trabaja
+                con conjuntos de información grandes.
+            </p>
+        </section>
+
+        <div class="navegacion-temas">
+            <a href="Tema61.html">← Tema anterior</a>
+            <a href="Tema63.html">Siguiente tema →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Unidad 6 | Métodos de Búsqueda</p>
+        <p>Ingeniería en Sistemas Computacionales</p>
+    </footer>
+
+</body>
+</html>
+

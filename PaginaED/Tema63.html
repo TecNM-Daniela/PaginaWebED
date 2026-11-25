@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.3 Búsqueda por funciones HASH</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <header class="navbar">
+    <div class="logo">
+        <a href="index.html">Métodos de Búsqueda</a>
+    </div>
+
+    <nav>
+        <div class="dropdown">
+            <a href="#" class="activo">Temas ▾</a>
+
+            <div class="dropdown-contenido">
+                <a href="Tema61.html">6.1 Búsqueda Secuencial</a>
+                <a href="Tema62.html">6.2 Búsqueda Binaria</a>
+                <a href="Tema63.html">6.3 Búsqueda HASH</a>
+            </div>
+        </div>
+    </nav>
+</header>
+    <section class="portada-tema portada-hash">
+        <div>
+            <p class="etiqueta">UNIDAD 6 · MÉTODOS DE BÚSQUEDA</p>
+            <h1>6.3 Búsqueda por funciones HASH</h1>
+            <p>
+                Un método que utiliza claves y funciones HASH
+                para localizar información de manera eficiente.
+            </p>
+        </div>
+    </section>
+
+    <main class="contenido-tema">
+
+        <section class="bloque">
+            <h2>¿Qué es la búsqueda por funciones HASH?</h2>
+            <p>
+                La búsqueda por funciones HASH es un método que permite
+                localizar información mediante una clave. Para hacerlo,
+                utiliza una función HASH que transforma esa clave
+                en una posición dentro de una estructura llamada
+                tabla HASH.
+            </p>
+            <p>
+                De esta manera, el programa puede acceder a la
+                información sin tener que revisar todos los elementos
+                uno por uno.
+            </p>
+        </section>
+
+        <section class="bloque">
+            <h2>Características</h2>
+            <ul>
+                <li>Utiliza una función HASH para calcular posiciones.</li>
+                <li>Trabaja mediante claves que identifican los datos.</li>
+                <li>Permite realizar búsquedas rápidas.</li>
+                <li>Utiliza una estructura conocida como tabla HASH.</li>
+                <li>Puede presentar colisiones cuando dos claves generan la misma posición.</li>
+            </ul>
+        </section>
+
+        <section class="bloque">
+            <h2>Funcionamiento</h2>
+            <p>
+                Primero se proporciona una clave para localizar
+                un elemento. Después, la función HASH transforma
+                esa clave en una posición dentro de la tabla.
+                Finalmente, el programa utiliza esa posición
+                para acceder a la información correspondiente.
+            </p>
+
+            <h3>Ejemplo:</h3>
+            <p>Se utiliza la función: h(clave) = clave % 10</p>
+
+            <div class="tabla-contenedor">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Clave</th>
+                            <th>Operación</th>
+                            <th>Posición</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>22</td>
+                            <td>22 % 10</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>35 % 10</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>42</td>
+                            <td>42 % 10</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="nota">
+                Las claves 22 y 42 generan la misma posición.
+                A esta situación se le conoce como colisión.
+            </div>
+        </section>
+
+        <section class="bloque">
+            <h2>Colisiones</h2>
+            <p>
+                Una colisión ocurre cuando dos o más claves producen
+                la misma posición dentro de una tabla HASH.
+                Para resolver este problema existen diferentes
+                técnicas.
+            </p>
+
+            <h3>Encadenamiento</h3>
+            <p>
+                Consiste en almacenar varios elementos que comparten
+                una posición dentro de una lista asociada a esa
+                ubicación.
+            </p>
+
+            <h3>Direccionamiento abierto</h3>
+            <p>
+                Consiste en buscar otra posición disponible dentro
+                de la tabla cuando ocurre una colisión.
+            </p>
+        </section>
+
+        <section class="bloque">
+            <h2>Ejemplo de programación en C#</h2>
+            <p>
+                En C# se puede utilizar Dictionary para trabajar
+                con una estructura que utiliza claves y valores.
+                Esta colección utiliza mecanismos HASH internamente
+                para localizar los elementos.
+            </p>
+
+            <pre class="codigo"><code>using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Dictionary&lt;int, string&gt; alumnos =
+            new Dictionary&lt;int, string&gt;();
+
+        alumnos.Add(101, "Daniela");
+        alumnos.Add(102, "Carlos");
+        alumnos.Add(103, "Maria");
+        alumnos.Add(104, "Luis");
+
+        int buscar = 103;
+
+        if (alumnos.ContainsKey(buscar))
+        {
+            Console.WriteLine("Alumno encontrado: "
+                + alumnos[buscar]);
+        }
+        else
+        {
+            Console.WriteLine("Alumno no encontrado");
+        }
+    }
+}</code></pre>
+
+            <h3>Resultado esperado</h3>
+            <div class="nota">
+                Alumno encontrado: Maria
+            </div>
+        </section>
+
+        <section class="bloque">
+            <h2>Ventajas</h2>
+            <ul>
+                <li>Permite realizar búsquedas rápidas.</li>
+                <li>Facilita el acceso a información mediante claves.</li>
+                <li>Es útil cuando se manejan grandes cantidades de datos.</li>
+            </ul>
+
+            <h2>Desventajas</h2>
+            <ul>
+                <li>Pueden ocurrir colisiones.</li>
+                <li>Necesita una función HASH adecuada.</li>
+                <li>El rendimiento puede disminuir si existen muchas colisiones.</li>
+            </ul>
+        </section>
+
+        <section class="bloque">
+            <h2>Complejidad</h2>
+            <p>
+                Las tablas HASH pueden tener una complejidad promedio
+                de O(1) para realizar búsquedas, siempre que la función
+                distribuya adecuadamente las claves. En el peor caso,
+                cuando existen muchas colisiones, la búsqueda puede
+                llegar a O(n).
+            </p>
+        </section>
+
+        <section class="bloque conclusion">
+            <h2>Conclusión</h2>
+            <p>
+                La búsqueda por funciones HASH permite localizar
+                información de manera rápida utilizando claves.
+                Es un método importante en programación porque
+                facilita el acceso a los datos y se utiliza en
+                diferentes estructuras y aplicaciones.
+            </p>
+        </section>
+
+        <section class="bloque">
+            <h2>Referencias</h2>
+            <ul>
+                <li>
+                    <a href="https://opendsa.org/" target="_blank">
+                        OpenDSA - Estructuras de datos y algoritmos
+                    </a>
+                </li>
+                <li>
+                    <a href="https://csrc.nist.gov/glossary/term/hash_function" target="_blank">
+                        NIST - Hash Function
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <div class="navegacion-temas">
+            <a href="Tema62.html">← Tema anterior</a>
+            <a href="index.html">Volver al inicio</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Unidad 6 | Métodos de Búsqueda</p>
+        <p>Ingeniería en Sistemas Computacionales</p>
+    </footer>
+
+</body>
+</html>
+
